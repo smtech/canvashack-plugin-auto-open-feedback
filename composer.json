@@ -8,7 +8,5 @@
             "name": "Seth Battis",
             "email": "sethbattis@stmarksschool.org"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+    ]
 }
