@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<canvashack>
+	<name>Auto-Open Feedback</name>
+	<description>A bandaid until SpeedGrader 2.0: autoopen SpeedGrader feedback and rubrics for students</description>
+	<authors>
+		<author>
+			<name>Seth Battis</name>
+			<email>SethBattis@stmarksschool.org</email>
+		</author>
+	</authors>
+	<components>
+		<javascript path="auto-open-feedback.js" />
+		<canvas>
+			<pages>
+				<include>
+					<page pattern="%courses/\d+/assignments/\d+/submissions/\d+%" />
+				</include>
+			</pages>
+			<dom>
+				<selector load="delayOpenPreview()">#preview_frame</selector>
+				<selector click="">.assess_submission_link.rubric</selector>
+			</dom>
+		</canvas>	
+	</components>
+</canvashack>
