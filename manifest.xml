@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <canvashack>
 	<name>Auto-Open Feedback</name>
+	<id>auto-open-feedback</id>
 	<description>A bandaid until SpeedGrader 2.0: autoopen SpeedGrader feedback and rubrics for students</description>
 	<authors>
 		<author>
@@ -9,17 +10,28 @@
 		</author>
 	</authors>
 	<components>
-		<javascript path="auto-open-feedback.js" />
+		<javascript>auto-open-feedback.js</javascript>
 		<canvas>
 			<pages>
 				<include>
-					<page pattern="%courses/\d+/assignments/\d+/submissions/\d+%" />
+					<page>
+						<type>regex</type>
+						<pattern>%courses/\d+/assignments/\d+/submissions/\d+%</pattern>
+					</page>
 				</include>
 			</pages>
 			<dom>
-				<selector load="delayOpenPreview()">#preview_frame</selector>
-				<selector click="">.assess_submission_link.rubric</selector>
+				<bundle>
+					<event>load</event>
+					<method>delayOpenPreview()</method>
+					<selector>#preview_frame</selector>
+				</bundle>
+				<bundle>
+					<event>click</event>
+					<action/>
+					<selector>.assess_submission_link.rubric</selector>
+				</bundle>
 			</dom>
-		</canvas>	
+		</canvas>
 	</components>
 </canvashack>
