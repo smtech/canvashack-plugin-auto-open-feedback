@@ -23,13 +23,8 @@
 			<dom>
 				<bundle>
 					<event>load</event>
-					<method>delayOpenPreview()</method>
+					<action>openFeedback()</action>
 					<selector>#preview_frame</selector>
-				</bundle>
-				<bundle>
-					<event>click</event>
-					<action/>
-					<selector>.assess_submission_link.rubric</selector>
 				</bundle>
 			</dom>
 		</canvas>

@@ -1,11 +1,14 @@
 var canvashack = {
-	openPreview: function() {
+	delayOpenPreview: function() {
 		// open the document preivew (if it's there)
-		return $('#preview_frame').contents().find('.content-box').find('.col-xs-5.align-right').find('a')[0].click();
+		$('#preview_frame').contents().find('.content-box').find('.col-xs-5.align-right').find('a')[0].click();
+
+		// open the rubric, if it's there
+		$('.assess_submission_link.rubric').click();
 	},
 	
-	delayOpenPreview: function() {
+	openFeedback: function() {
 		// not sure why I need to have the second delay -- but if I don't the document downloads, rather than previews
-		return $('#preview_frame').load(window.setTimeout(this.openPreview, 1000));
+		window.setTimeout(this.delayOpenPreview, 1000);
 	}
 };
