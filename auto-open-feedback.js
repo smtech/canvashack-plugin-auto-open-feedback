@@ -1,14 +1,24 @@
 var canvashack = {
-	delayOpenPreview: function() {
-		// open the document preivew (if it's there)
-		$('#preview_frame').contents().find('.content-box').find('.col-xs-5.align-right').find('a')[0].click();
+    delayOpenPreview: function () {
+        "use strict";
+        try {
+            // open the document preivew (if it's there)
+            $('#preview_frame').contents().find('.modal_preview_link')[0].click();
+        } catch (error) {
+            // do nothing
+        }
 
-		// open the rubric, if it's there
-		$('.assess_submission_link.rubric').click();
-	},
-	
-	openFeedback: function() {
-		// not sure why I need to have the second delay -- but if I don't the document downloads, rather than previews
-		window.setTimeout(this.delayOpenPreview, 1000);
-	}
+        try {
+            // open the rubric, if it's there
+            $('.assess_submission_link.rubric').click();
+        } catch (error) {
+            // do nothing
+        }
+    },
+
+    openFeedback: function () {
+        "use strict";
+        // not sure why I need to have the second delay -- but if I don't the document downloads, rather than previews
+        window.setTimeout(delayOpenPreview, 1000);
+    }
 };
